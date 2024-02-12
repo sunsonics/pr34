@@ -9,10 +9,10 @@ from kivy.utils import get_color_from_hex
 
 class RainbowApp(App):
     def build(self):
-        # Создаем главный макет
+         
         layout = GridLayout(cols=2)
 
-        # Список цветов радуги и их кодов
+        
         rainbow_colors = {
             "красный": "#ff0000",
             "оранжевый": "#ff8800",
@@ -23,17 +23,17 @@ class RainbowApp(App):
             "фиолетовый": "#ff00ff"
         }
 
-        # Создаем текстовое поле для вывода кода цвета
+        
         self.color_code = TextInput(text='', multiline=False)
         layout.add_widget(Label(text='Код цвета:'))
         layout.add_widget(self.color_code)
 
-        # Создаем метку для вывода названия цвета
+        
         self.color_name = Label(text='')
         layout.add_widget(Label(text='Название цвета:'))
         layout.add_widget(self.color_name)
 
-        # Создаем кнопки для каждого цвета радуги
+        
         for color_name, color_code in rainbow_colors.items():
             button = Button(text=color_name, background_color=get_color_from_hex(color_code))
             button.bind(on_press=lambda instance, color=color_code: self.on_button_press(instance, color))
